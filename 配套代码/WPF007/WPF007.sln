@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF007", "WPF007\WPF007.csproj", "{90D30BD9-6306-44C3-B184-CB2ACF09E0D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsControlLibrary1", "WindowsFormsControlLibrary1\WindowsFormsControlLibrary1.csproj", "{8CB091E5-397C-4454-BACD-F1CE2F12A9C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90D30BD9-6306-44C3-B184-CB2ACF09E0D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90D30BD9-6306-44C3-B184-CB2ACF09E0D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90D30BD9-6306-44C3-B184-CB2ACF09E0D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90D30BD9-6306-44C3-B184-CB2ACF09E0D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB091E5-397C-4454-BACD-F1CE2F12A9C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB091E5-397C-4454-BACD-F1CE2F12A9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB091E5-397C-4454-BACD-F1CE2F12A9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB091E5-397C-4454-BACD-F1CE2F12A9C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {176DDCB8-01E0-472F-840E-D0DE31139D0A}
+	EndGlobalSection
+EndGlobal
