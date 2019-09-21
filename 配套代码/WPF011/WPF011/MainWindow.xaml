@@ -1,0 +1,16 @@
+﻿<Window x:Class="WPF011.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF011"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Button Content="PageA" Width="100" Click="Button_ClickA"/>
+            <Button Content="PageB" Width="100" Click="Button_ClickB"/>
+        </StackPanel>
+        <Frame x:Name="myFrame"/>
+    </DockPanel>
+</Window>
