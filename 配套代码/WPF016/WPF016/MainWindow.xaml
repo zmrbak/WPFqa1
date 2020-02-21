@@ -1,0 +1,83 @@
+﻿<Window x:Class="WPF016.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF016"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="142" Width="589">
+    <Window.Resources>
+        <Style x:Key="HMIInputBoxStyle1" TargetType="{x:Type local:HMIInputBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="#FFABADB3"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="True"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:HMIInputBox}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="state">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="AlarmState">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color">
+                                                <DiscreteColorKeyFrame KeyTime="0" Value="Red"/>
+                                            </ColorAnimationUsingKeyFrames>                                                                          
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="WarnState">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color">
+                                                <DiscreteColorKeyFrame KeyTime="0" Value="Orange"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF569DE5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding (0)}" Value="false">
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                   
+                </DataTrigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="True"/>
+                        <Condition Property="IsSelectionActive" Value="False"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                  
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <local:HMIInputBox x:Name="inputText" HorizontalAlignment="Left" Height="45" Margin="50,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" Style="{DynamicResource HMIInputBoxStyle1}" />
+        <Button Content="Button" HorizontalAlignment="Left" Height="45" Margin="270,10,0,0" VerticalAlignment="Top" Width="105" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="45" Margin="400,10,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>
