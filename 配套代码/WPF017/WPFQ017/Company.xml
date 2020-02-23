@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ArrayOfCompany>
+  <Company Name="公司1">
+    <Department Name="部门1">
+      <Employee Name="员工1"/>
+      <Employee Name="员工2"/>
+      <Employee Name="员工3"/>
+      <Employee Name="员工4"/>
+      <Employee Name="员工5"/>
+    </Department>
+    <Department Name="部门A">
+      <Employee Name="员工1"/>
+      <Employee Name="员工2"/>
+      <Employee Name="员工3"/>
+      <Employee Name="员工4"/>
+      <Employee Name="员工5"/>
+    </Department>
+  </Company>
+  <Company Name="公司2">
+    <Department Name="部门2">
+      <Employee Name="员工3"/>
+      <Employee Name="员工4"/>
+      <Employee Name="员工5"/>
+      <Employee Name="员工6"/>
+      <Employee Name="员工7"/>
+    </Department>
+  </Company>
+  <Company Name="公司3">
+    <Department Name="部门2">
+      <Employee Name="员工3"/>
+      <Employee Name="员工4"/>
+      <Employee Name="员工5"/>
+      <Employee Name="员工6"/>
+      <Employee Name="员工7"/>
+    </Department>
+  </Company>
+</ArrayOfCompany>
