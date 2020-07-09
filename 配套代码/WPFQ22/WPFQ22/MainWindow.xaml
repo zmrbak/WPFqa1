@@ -1,0 +1,29 @@
+﻿<Window
+    x:Class="WPFQ22.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFQ22"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="239"
+    Height="407"
+    mc:Ignorable="d">
+    <DockPanel>
+        <Button
+            Click="Button_Click"
+            Content="生成数据"
+            DockPanel.Dock="Top" />
+        <ListBox x:Name="listBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="50">
+                        <TextBlock Text="{Binding Index}" />
+                        <TextBlock Text="{Binding Name}" />
+                        <Image Source="{Binding ImagePath}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Window>
