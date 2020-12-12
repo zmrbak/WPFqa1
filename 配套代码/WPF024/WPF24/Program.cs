@@ -56,35 +56,74 @@ namespace WPF24
     }
 ]}
 ";
+            //构建字符串
+            //Rootobject rootobject= new JavaScriptSerializer().Deserialize<Rootobject>(json);
+            //Rootobject studentsInfo = JsonConvert.DeserializeObject<Rootobject>(json);
 
-            Rootobject rootobject= new JavaScriptSerializer().Deserialize<Rootobject>(json);
-            Rootobject studentsInfo = JsonConvert.DeserializeObject<Rootobject>(json);
+            //foreach (var item in rootobject.Property1)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            foreach (var item in rootobject.Property1)
-            {
-                Console.WriteLine(item);
-            }
+            string json0 = @"[
+    {
+        ""id"": 17,
+        ""t"": ""ECT-0091890"",
+        ""z"": ""20083"",
+        ""n"": ""检修盖板的碟型垫片更换""
+    },
+    {
+        ""id"": 16,
+        ""t"": ""ECT-0127844"",
+        ""z"": ""20095"",
+        ""n"": ""司机室进风口增加挡板""
+    },
+    {
+        ""id"": 3,
+        ""t"": ""0"",
+        ""z"": ""20080"",
+        ""n"": ""KV阀阀体更换""
+    },
+    {
+        ""id"": 2,
+        ""t"": ""ECT-0028187"",
+        ""z"": ""20081"",
+        ""n"": ""oem控制器改国产控制器""
+    },
+    {
+        ""id"": 1,
+        ""t"": ""ECT-0095963"",
+        ""z"": ""20070"",
+        ""n"": ""手动温控开关整改""
+    }
+]}
+";
+            //使用List
+            var aa0 = new JavaScriptSerializer().Deserialize<List<Class1>>(json0);
+            var aa1 = JsonConvert.DeserializeObject<List<Class1>>(json0);
+
+            //使用数组
+            var aa2 = new JavaScriptSerializer().Deserialize<Class1[]>(json0);
+            var aa3 = JsonConvert.DeserializeObject<Class1[]>(json0);
         }
     }
 
     public class Rootobject
     {
         public Class1[] Property1 { get; set; }
+    }
+    public class Class1
+    {
+        public int id { get; set; }
+        public string t { get; set; }
+        public string z { get; set; }
+        public string n { get; set; }
 
-        public class Class1
+        public override string ToString()
         {
-            public int id { get; set; }
-            public string t { get; set; }
-            public string z { get; set; }
-            public string n { get; set; }
-
-            public override string ToString()
-            {
-                return "id：" + id + "\tt:" + t + "\tz:" + z + "\tn:" + n;
-            }
+            return "id：" + id + "\tt:" + t + "\tz:" + z + "\tn:" + n;
         }
     }
-
 
 
     public class StudentsInfo
