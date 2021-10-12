@@ -1,0 +1,56 @@
+﻿<Window
+    x:Class="WpfQ27.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfQ27"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="424"
+    Height="274"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <TextBlock
+            Margin="0,25,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="36"
+            Text="登录系统"
+            TextWrapping="Wrap" />
+        <TextBlock
+            Margin="130,100,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="用户名"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Margin="180,100,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding UserName}"
+            TextWrapping="Wrap" />
+        <TextBlock
+            Margin="130,129,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="密码"
+            TextWrapping="Wrap" />
+        <local:BindablePasswordBox
+            Width="120"
+            Margin="180,129,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Password="{Binding Password}" />
+        <Button
+            Width="128"
+            Margin="142,165,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding LoginCommand, Mode=OneWay}"
+            Content="登录" />
+    </Grid>
+</Window>
