@@ -1,0 +1,32 @@
+﻿<UserControl
+    x:Class="UserControlDemo.Views.UControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:command="clr-namespace:UserControlDemo.Commands"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:UserControlDemo.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:UserControlDemo.ViewModels"
+    d:DesignHeight="145"
+    d:DesignWidth="260"
+    Background="White"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <viewmodel:UControlViewModel x:Key="ViewModel" />
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding
+            CanExecute="CommandBinding_CanExecute"
+            Command="{x:Static command:RoutedCommands.PickUpCommand}"
+            Executed="CommandBinding_Executed" />
+    </UserControl.CommandBindings>
+    <DockPanel Margin="10" DataContext="{StaticResource ViewModel}">
+        <StackPanel DockPanel.Dock="Left">
+            <TextBlock Text="FirstName:" />
+            <TextBox Text="{Binding UserInfo.FirstName, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="LastName:" />
+            <TextBox Text="{Binding UserInfo.LastName, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Command="{x:Static command:RoutedCommands.PickUpCommand}" Content="拾取" />
+        </StackPanel>
+    </DockPanel>
+</UserControl>

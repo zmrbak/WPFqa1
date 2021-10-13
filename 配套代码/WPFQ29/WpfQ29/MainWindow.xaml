@@ -1,0 +1,38 @@
+﻿<Window
+    x:Class="WpfQ29.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfQ29"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="364"
+    Height="224"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <TextBlock
+            Margin="80,50,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="密码"
+            TextWrapping="Wrap" />
+        <PasswordBox
+            Width="120"
+            Margin="120,48,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            local:PasswordBoxHelper.Attach="True"
+            local:PasswordBoxHelper.Password="{Binding Password}" />
+        <Button
+            Width="160"
+            Margin="80,104,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding LoginCommand}"
+            Content="提交" />
+
+    </Grid>
+</Window>
