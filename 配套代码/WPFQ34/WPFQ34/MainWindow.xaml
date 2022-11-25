@@ -1,0 +1,59 @@
+﻿<Window
+    x:Class="WPFQ34.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:WPFQ34"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mvvmlight="http://www.galasoft.ch/mvvmlight"
+    xmlns:viewmodel="clr-namespace:WPFQ34.ViewModel"
+    Title="MainWindow"
+    Width="453"
+    Height="258"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <viewmodel:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <TabControl>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding TabControlCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <TabItem Header="TabItem 1">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox
+                        Width="196"
+                        Margin="30,37,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <mvvmlight:EventToCommand Command="{Binding ComboxCommand}" PassEventArgsToCommand="True" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ComboBoxItem Content="ComboBoxItem A" />
+                        <ComboBoxItem Content="ComboBoxItem B" />
+                        <ComboBoxItem Content="ComboBoxItem C" />
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem 2">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox
+                        Width="199"
+                        Margin="106,37,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <ComboBoxItem Content="ComboBoxItem 1" />
+                        <ComboBoxItem Content="ComboBoxItem 2" />
+                        <ComboBoxItem Content="ComboBoxItem 3" />
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
